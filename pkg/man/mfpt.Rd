@@ -39,11 +39,11 @@ Osmar Leandro Loaiza Quintero
 \examples{
 
 data(usinc)
-stateVars<-names(usinc@data[,7:87])
+stateVars<-names(usinc[,7:87])
 stateNames<-c('Poor','Lower','Middle','Upper','Rich')
 
 ##Classic Markov Matrix
-Mc<-markov(usinc@data, stateVars=stateVars,n.states=5,stateNames=stateNames)
+Mc<-markov(usinc, stateVars=stateVars,n.states=5,stateNames=stateNames)
 mfpt(Mc)
 
 ##Spatial Markov Matrix
@@ -51,7 +51,7 @@ mfpt(Mc)
 require(spdep)
 lw<-nb2listw(poly2nb(usinc,queen=TRUE),style='W')
 
-Msp<-spMarkov(usinc@data, lw, stateVars=stateVars,
+Msp<-spMarkov(usinc, lw, stateVars=stateVars,
 n.states=5,stateNames=stateNames,
 pool=TRUE,std=TRUE)
 

@@ -2,7 +2,12 @@
 spInitState <-
     function(data,listw,stateVars,n.states,stateNames=NULL,style='quantile',
              breaks,breaks.lag,pool=TRUE,std=TRUE){
-        x<-data[,stateVars]
+
+      if(sum(class(data)=='sf')>0){
+        x <- sf::st_drop_geometry(data[,stateVars])
+      }else{
+        x <- data[,stateVars]
+      }
         n<-nrow(x)
         t<-ncol(x)
         if(is.null(stateNames)){stateNames=seq(from=1, to=n.states,length.out=n.states)}

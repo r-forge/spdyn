@@ -10,7 +10,7 @@ plot.lisaPerm <- function(x,y,signif=.05,legend.title='',lty=1,lwd=1,fillBorder=
   brks <- c(0,1,2,3,4)
   colors <- c("white","red","blue",rgb(0,0,1,alpha=0.4),rgb(1,0,0,alpha=0.4))
   
-  sp::plot(shape,border="lightgray",col=colors[findInterval(q,brks,all.inside=FALSE)],
+  sp::plot(sf::st_geometry(shape),border="lightgray",col=colors[findInterval(q,brks,all.inside=FALSE)],
        lty=lty,lwd=lwd)
   box(lwd=box.lwd)
   legend("bottomright",legend=c("insignificant","high-high","low-low","low-high","high-low"),

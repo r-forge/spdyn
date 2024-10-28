@@ -5,8 +5,7 @@
 Steady State
 }
 \description{
-A function to estimate the ergodic distribution, or steady state distribution vector, of a regular first order 
- markov process.
+A function to estimate the ergodic distribution, or steady state distribution vector, of a regular first order markov process.
 }
 \usage{
 steadyState(M, tol = 1e-10)
@@ -47,11 +46,11 @@ Osmar Leandro Loaiza Quintero
 \examples{
 
 data(usinc)
-stateVars<-names(usinc@data[,7:87])
+stateVars<-names(usinc[,7:87])
 stateNames<-c('Poor','Lower','Middle','Upper','Rich')
 
 ##Classic Markov Matrix
-Mc<-markov(usinc@data, stateVars=stateVars,n.states=5,stateNames=stateNames)
+Mc<-markov(usinc, stateVars=stateVars,n.states=5,stateNames=stateNames)
 steadyState(Mc)
 
 ##Spatial Markov Matrix
@@ -59,7 +58,7 @@ steadyState(Mc)
 require(spdep)
 lw<-nb2listw(poly2nb(usinc,queen=TRUE),style='W')
 
-Msp<-spMarkov(usinc@data, lw, stateVars=stateVars,
+Msp<-spMarkov(usinc, lw, stateVars=stateVars,
 n.states=5,stateNames=stateNames,
 pool=TRUE,std=TRUE)
 

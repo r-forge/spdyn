@@ -1,7 +1,11 @@
 markov <-
     function(data,stateVars,n.states,stateNames=NULL,discretized=FALSE,pool=FALSE,std=FALSE,balanced=TRUE){
-		
-        x<-data[,stateVars]
+		    
+        if(sum(class(data)=='sf')>0){
+          x <- sf::st_drop_geometry(data[,stateVars])
+        }else{
+          x <- data[,stateVars]
+        }
         n<-nrow(x)
         t<-ncol(x)
         

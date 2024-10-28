@@ -10,14 +10,13 @@ A spatial longitudinal data set of United States fourty-eight conterminous state
 \usage{data(usinc)}
 
 \format{
-A \code{SpatialPolygonsDataFrame}
+A \code{sf} and \code{data.frame}
 }
 
 \details{
-  The slot \code{data} contains a longitudinal or
-panel data frame in the wide format.
+  A longitudinal data frame in the wide format with.
  
- \itemize{
+ \describe{
 \item{STATE_FIPS}{  : A numeric vector. US states numerical identifier. }
 \item{AREA}{   A numeric vector. Area of the polygons. }
 \item{PERIMETER}{  : A numeric vector. Perimeter of the polygons. }
@@ -36,6 +35,6 @@ Bureau of Economic Analysis, 2010. State Personal Income. http://www.bea.gov/new
 
 \examples{
 #data(usinc,package='spdyn')
-#slotNames(usinc); names(usinc@data) ; plot(usinc)
+#names(usinc) ; plot(sf::st_geometry(usinc))
 }
 \keyword{datasets}

@@ -82,10 +82,10 @@ Osmar Leandro Loaiza Quintero
 \examples{
 
 data(usinc)
-stateVars<-names(usinc@data[,7:87])
+stateVars<-names(usinc[,7:87])
 stateNames<-c('Poor','Lower','Middle','Upper','Rich')
 
-M<-markov(usinc@data, stateVars=stateVars,n.states=5,stateNames=stateNames)
+M<-markov(usinc, stateVars=stateVars,n.states=5,stateNames=stateNames)
 M$t;M$p
 
 }

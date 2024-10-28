@@ -1,8 +1,8 @@
 spMarkov <-
     function(data,listw,stateVars,n.states,stateNames=NULL,style='quantile',
              breaks,breaks.lag,pool=TRUE,std=TRUE){
-				 
-        x<-data[,stateVars]
+				
+        x<-sf::st_drop_geometry(data[,stateVars])
         n<-nrow(x)
         t<-ncol(x)
         
